@@ -9,6 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H.Versioning.Cli", "H.Versi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{9C1C7F7D-E05B-4C9B-8399-70DA91C52F6E}"
 	ProjectSection(SolutionItems) = preProject
+		H.Versioning.Cli\H.Versioning.Cli.nuspec = H.Versioning.Cli\H.Versioning.Cli.nuspec
 		PublishNuGet.bat = PublishNuGet.bat
 		Release.bat = Release.bat
 	EndProjectSection

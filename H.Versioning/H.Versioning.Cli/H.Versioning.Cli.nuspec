@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>H.Versioning</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>H's Easy Application Versioning Library</title>
     <projectUrl>https://github.com/hinteadan/H.Versioning</projectUrl>
     <authors>Hintea Dan Alexandru</authors>
@@ -14,5 +14,8 @@
     <releaseNotes>First release of the library</releaseNotes>
     <copyright>Copyright 2016. Hintea Dan Alexandru.</copyright>
     <tags>version git versioning tracking track deploy automation hintea dan alexandru hintee tee</tags>
+    <dependencies>
+      <dependency id="LibGit2Sharp" version="0.22.0" />
+    </dependencies>
   </metadata>
 </package>
