@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>H.Versioning</id>
+    <version>1.0.0</version>
+    <title>H's Easy Application Versioning Library</title>
+    <projectUrl>https://github.com/hinteadan/H.Versioning</projectUrl>
+    <authors>Hintea Dan Alexandru</authors>
+    <owners>Hintea Dan Alexandru,Hintee</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>https://raw.githubusercontent.com/hinteadan/H.Versioning/master/LICENSE</licenseUrl>
+    <description>One very easy solution for tracking the version of your application. Zero input from developer; the library processes the current version by analyzing the app's GIT repo.</description>
+    <summary>One very easy solution for tracking the version of your application.</summary>
+    <releaseNotes>First release of the library</releaseNotes>
+    <copyright>Copyright 2016. Hintea Dan Alexandru.</copyright>
+    <tags>version git versioning tracking track deploy automation hintea dan alexandru hintee tee</tags>
+  </metadata>
+</package>
