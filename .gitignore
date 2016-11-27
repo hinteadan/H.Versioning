@@ -251,3 +251,5 @@ paket-files/
 .idea/
 *.sln.iml
 */Build/*
+*/Build/*.zip
+H.Versioning/Build/HsVersioningRelease.zip
