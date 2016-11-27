@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H.Versioning", "H.Versionin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H.Versioning.Cli", "H.Versioning.Cli\H.Versioning.Cli.csproj", "{07E3785C-BC4F-48D6-9D09-2799A5CD1F3A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{9C1C7F7D-E05B-4C9B-8399-70DA91C52F6E}"
+	ProjectSection(SolutionItems) = preProject
+		PublishNuGet.bat = PublishNuGet.bat
+		Release.bat = Release.bat
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
