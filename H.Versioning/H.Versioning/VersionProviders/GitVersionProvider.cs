@@ -19,7 +19,7 @@ namespace H.Versioning.VersionProviders
             this.gitRepositoryPath = FindGitFolder(new DirectoryInfo(pathToGitRepo));
         }
 
-        private string FindGitFolder(DirectoryInfo folder)
+        private static string FindGitFolder(DirectoryInfo folder)
         {
             if (folder == null || !folder.Exists)
             {
@@ -44,7 +44,7 @@ namespace H.Versioning.VersionProviders
             }
         }
 
-        private VersionNumber FetchVersionNumber(Repository repo)
+        private static VersionNumber FetchVersionNumber(Repository repo)
         {
             var branch = repo.Branches.Single(b => b.IsCurrentRepositoryHead);
             var tag = FetchClosestTag(repo, branch.Tip.Committer.When);
@@ -69,7 +69,7 @@ namespace H.Versioning.VersionProviders
                 );
         }
 
-        private int FetchBuildNumber(Repository repo, DateTimeOffset timestamp, DateTimeOffset tagTimestamp)
+        private static int FetchBuildNumber(Repository repo, DateTimeOffset timestamp, DateTimeOffset tagTimestamp)
         {
             return repo
                 .Commits
@@ -77,17 +77,17 @@ namespace H.Versioning.VersionProviders
                 .Count();
         }
 
-        private VersionNumber NeverReleasedDevelopmentVersionNumber(Repository repo, DateTimeOffset timestamp)
+        private static VersionNumber NeverReleasedDevelopmentVersionNumber(Repository repo, DateTimeOffset timestamp)
         {
             return new VersionNumber(0, 0, 0, repo.Commits.Where(c => c.Committer.When <= timestamp).Count(), InDevelopmentSuffix());
         }
 
-        private string InDevelopmentSuffix(string existingSuffix = null)
+        private static string InDevelopmentSuffix(string existingSuffix = null)
         {
             return string.IsNullOrWhiteSpace(existingSuffix) ? "in-development" : $"{existingSuffix}-in-development";
         }
 
-        private Tag FetchClosestTag(Repository repo, DateTimeOffset timestamp)
+        private static Tag FetchClosestTag(Repository repo, DateTimeOffset timestamp)
         {
             return repo.Tags
                 .Where(t => t.IsAnnotated)
@@ -95,7 +95,7 @@ namespace H.Versioning.VersionProviders
                 .FirstOrDefault(t => TagCommit(repo, t).Committer.When <= timestamp);
         }
 
-        private Commit TagCommit(Repository repo, Tag tag)
+        private static Commit TagCommit(Repository repo, Tag tag)
         {
             return repo.Commits.Single(c => c.Id == tag.Target.Id);
         }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace H.Versioning
 {
@@ -14,11 +13,29 @@ namespace H.Versioning
 
         public Version GetCurrent()
         {
-            return this.providers
-                .Where(x => x.Item1.Invoke())
-                .FirstOrDefault()
-                ?.Item2.GetCurrent()
-                ?? Version.Unknown;
+            foreach (var provider in providers)
+            {
+                if (!provider.Item1.Invoke())
+                {
+                    continue;
+                }
+
+                try
+                {
+                    var v = provider.Item2.GetCurrent();
+                    if (v == Version.Unknown)
+                    {
+                        continue;
+                    }
+                    return v;
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
+            }
+
+            return Version.Unknown;
         }
     }
 }

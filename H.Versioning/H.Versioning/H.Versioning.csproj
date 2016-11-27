@@ -49,6 +49,7 @@
     <Compile Include="VersionProviderPipeline.cs" />
     <Compile Include="VersionProviders\FileVersionProvider.cs" />
     <Compile Include="VersionProviders\GitVersionProvider.cs" />
+    <Compile Include="VersionProviders\TheOneVersionProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
