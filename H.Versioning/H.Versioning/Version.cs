@@ -1,10 +1,13 @@
-﻿using System;
+﻿using H.Versioning.VersionProviders;
+using System;
 using System.Globalization;
 
 namespace H.Versioning
 {
     public sealed class Version
     {
+        public static readonly IProvideVersion Self = new TheOneVersionProvider();
+
         public static readonly Version Unknown = new Version(VersionNumber.Unknown, DateTime.MinValue, "N/A", "N/A");
 
         private static readonly string[] possibleVersionPartsSeparators = new string[] { "\r", "\n", "\t", "; ", ", ", "| " };
