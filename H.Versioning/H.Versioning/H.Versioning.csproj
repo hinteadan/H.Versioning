@@ -42,9 +42,13 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IProvideVersion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Version.cs" />
     <Compile Include="VersionNumber.cs" />
+    <Compile Include="VersionProviderPipeline.cs" />
+    <Compile Include="VersionProviders\FileVersionProvider.cs" />
+    <Compile Include="VersionProviders\GitVersionProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
