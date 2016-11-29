@@ -31,6 +31,7 @@ namespace H.Versioning.Cli
             if (!args.Any())
             {
                 Console.WriteLine("You must specify the *.nuspec file path. E.g.: H.Versioning.Cli.exe nuspec \".\\MyProject\\MyProject.nuspec\"");
+                Console.WriteLine();
                 return;
             }
 
@@ -41,12 +42,14 @@ namespace H.Versioning.Cli
             catch (Exception ex)
             {
                 Console.Write(ex.Message);
+                Console.WriteLine();
             }
         }
 
         private static void HandleUnknowArgument(string arg)
         {
             Console.WriteLine($"Unknown command argument: {arg}");
+            Console.WriteLine();
         }
     }
 }
