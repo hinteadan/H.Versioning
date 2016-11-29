@@ -69,12 +69,14 @@ namespace H.Versioning.VersionProviders
                 );
         }
 
-        private static int FetchBuildNumber(Repository repo, DateTimeOffset timestamp, DateTimeOffset tagTimestamp)
+        private static int? FetchBuildNumber(Repository repo, DateTimeOffset timestamp, DateTimeOffset tagTimestamp)
         {
-            return repo
+            var count = repo
                 .Commits
                 .Where(c => c.Committer.When > tagTimestamp && c.Committer.When <= timestamp)
                 .Count();
+
+            return count > 0 ? (int?)count : null;
         }
 
         private static VersionNumber NeverReleasedDevelopmentVersionNumber(Repository repo, DateTimeOffset timestamp)
