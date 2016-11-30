@@ -31,25 +31,23 @@ namespace H.Versioning.Cli
             if (!args.Any())
             {
                 Console.WriteLine("You must specify the *.nuspec file path. E.g.: H.Versioning.Cli.exe nuspec \".\\MyProject\\MyProject.nuspec\"");
-                Console.WriteLine();
                 return;
             }
 
             try
             {
                 new NuspecFile(args.First()).UpdateVersion();
+                Console.WriteLine("Nuspec file version successfully updated");
             }
             catch (Exception ex)
             {
-                Console.Write(ex.Message);
-                Console.WriteLine();
+                Console.WriteLine(ex.Message);
             }
         }
 
         private static void HandleUnknowArgument(string arg)
         {
             Console.WriteLine($"Unknown command argument: {arg}");
-            Console.WriteLine();
         }
     }
 }
