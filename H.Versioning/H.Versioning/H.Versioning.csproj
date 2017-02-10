@@ -46,6 +46,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Version.cs" />
     <Compile Include="VersionNumber.cs" />
+    <Compile Include="VersionNumberParsers\ICanParseVersionNumber.cs" />
+    <Compile Include="VersionNumberParsers\SemanticVersionParser.cs" />
     <Compile Include="VersionProviderPipeline.cs" />
     <Compile Include="VersionProviders\FileVersionProvider.cs" />
     <Compile Include="VersionProviders\GitVersionProvider.cs" />
@@ -54,6 +56,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
