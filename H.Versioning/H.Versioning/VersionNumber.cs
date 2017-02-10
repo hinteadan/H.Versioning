@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Text;
 using H.Versioning.VersionNumberParsers;
 
@@ -6,6 +8,10 @@ namespace H.Versioning
 {
     public sealed class VersionNumber
     {
+        private static readonly ConcurrentStack<ICanParseVersionNumber> parsers = new ConcurrentStack<ICanParseVersionNumber>(new ICanParseVersionNumber[] {
+            new SemanticVersionParser()
+        });
+
         public static readonly VersionNumber Unknown = new VersionNumber(0, 0, 0, 0, "unknown");
 
         public readonly int Major;
@@ -26,9 +32,23 @@ namespace H.Versioning
         public VersionNumber(int major, int minor, int patch) : this(major, minor, patch, null, null) { }
         public VersionNumber(int major, int minor, int patch, int build) : this(major, minor, patch, build, null) { }
 
-        public static VersionNumber Parse(string semanticVersion)
+        public static VersionNumber Parse(string version)
         {
-            return new SemanticVersionParser().Parse(semanticVersion);
+            List<Exception> exceptions = new List<Exception>();
+
+            foreach (var parser in parsers)
+            {
+                try
+                {
+                    return parser.Parse(version);
+                }
+                catch (Exception ex)
+                {
+                    exceptions.Add(ex);
+                }
+            }
+
+            throw new AggregateException($"Unable to parse version string \"{version}\" with any of the registered parsers. See inner exceptions for details.", exceptions);
         }
 
         public override string ToString()
@@ -51,6 +71,11 @@ namespace H.Versioning
             }
 
             return versionString.ToString();
+        }
+
+        public static void Use(params ICanParseVersionNumber[] parsers)
+        {
+            VersionNumber.parsers.PushRange(parsers);
         }
     }
 }
