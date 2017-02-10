@@ -1,6 +1,7 @@
 ﻿using H.Versioning.VersionProviders;
 using System;
 using System.Globalization;
+using H.Versioning.VersionNumberParsers;
 
 namespace H.Versioning
 {
@@ -54,6 +55,11 @@ namespace H.Versioning
             }
 
             return new Version(number, timestamp, branch, commit);
+        }
+
+        public static void UseParser(params ICanParseVersionNumber[] parsers)
+        {
+            VersionNumber.Use(parsers);
         }
     }
 }
