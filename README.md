@@ -43,3 +43,18 @@ In addition to these, it also calculates the **Build number** by counting the nu
 If you don't do semantic tagging you still get a consistent version but it will look like **0.0.0.42**, which is not so cool.
 
 Alongside the version number, I also expose some additional useful info like the exact **commit hash**, the **branch** and the GIT **timestamp** of the current HEAD so you can easily track back to code the running version of your app.
+
+
+### Custom version number parsers
+
+Starting with version **v1.1.0** I added the ability to define custom version number parsers. This is useful if you have a custom versioning format.
+
+To use this feature do the following:
+
+1. Write your own custom class that implements the ```H.Versioning.VersionNumberParsers.ICanParseVersionNumber``` interface.
+
+2. Tell H.Versioning to use it via: ```Version.UseParser(MyCustomVersionNumberParser);```
+
+The parsers are internally stored in a stack, therefore their priority is **Last In, First Out**.
+
+The library will use the first parsing result that succeeds. If all of the registered parsers fail, it will throw an ```AggregateException``` containing the exceptions thrown by each parser.
