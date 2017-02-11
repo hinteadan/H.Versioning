@@ -55,6 +55,6 @@ To use this feature do the following:
 
 2. Tell H.Versioning to use it via: ```Version.UseParser(MyCustomVersionNumberParser);```
 
-The parsers are internally stored in stack, therefore their priority is **Last In, First Out**.
+The parsers are internally stored in a stack, therefore their priority is **Last In, First Out**.
 
 The library will use the first parsing result that succeeds. If all of the registered parsers fail, it will throw an ```AggregateException``` containing the exceptions thrown by each parser.
