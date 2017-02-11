@@ -49,11 +49,20 @@ Alongside the version number, I also expose some additional useful info like the
 
 Starting with version **v1.1.0** I added the ability to define custom version number parsers. This is useful if you have a custom versioning format.
 
-To use this feature do the following:
 
-1. Write your own custom class that implements the ```H.Versioning.VersionNumberParsers.ICanParseVersionNumber``` interface.
+To use this feature do one of the following:
 
-2. Tell H.Versioning to use it via: ```Version.UseParser(MyCustomVersionNumberParser);```
+
+1. Approach **A**:
+
+   1. Specifiy a parsing function, easiest way via a lambda: ```Version.UseParser(v => new VersionNumber(int.Parse(v.Substring(0, 1)), int.Parse(v.Substring(1))));```.
+   
+2. Approach **B**:
+
+   1. Write your own custom class that implements the ```H.Versioning.VersionNumberParsers.ICanParseVersionNumber``` interface.
+
+   2. Tell H.Versioning to use it via: ```Version.UseParser(MyCustomVersionNumberParser);```
+
 
 The parsers are internally stored in a stack, therefore their priority is **Last In, First Out**.
 
