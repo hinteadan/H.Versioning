@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace H.Versioning.VersionNumberParsers
 {
-    public class SemanticVersionParser : ICanParseVersionNumber
+    public sealed class SemanticVersionParser : ICanParseVersionNumber
     {
         public VersionNumber Parse(string versionNumber)
         {

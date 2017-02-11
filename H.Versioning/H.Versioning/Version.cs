@@ -1,7 +1,8 @@
-﻿using H.Versioning.VersionProviders;
+﻿using H.Versioning.VersionNumberParsers;
+using H.Versioning.VersionProviders;
 using System;
 using System.Globalization;
-using H.Versioning.VersionNumberParsers;
+using System.Linq;
 
 namespace H.Versioning
 {
@@ -60,6 +61,11 @@ namespace H.Versioning
         public static void UseParser(params ICanParseVersionNumber[] parsers)
         {
             VersionNumber.Use(parsers);
+        }
+
+        public static void UseParser(params Func<string, VersionNumber>[] parsers)
+        {
+            VersionNumber.Use(parsers.Select(p => new DelegateVersionParser(p)).ToArray());
         }
     }
 }
