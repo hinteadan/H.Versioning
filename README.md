@@ -67,3 +67,17 @@ To use this feature do one of the following:
 The parsers are internally stored in a stack, therefore their priority is **Last In, First Out**.
 
 The library will use the first parsing result that succeeds. If all of the registered parsers fail, it will throw an ```AggregateException``` containing the exceptions thrown by each parser.
+
+
+### Ignore some tags
+
+With version **1.2.0** you can ignore specific annotated tags by providing a predicate.
+
+This is for scenarios where you create tags for quick reference but they are not actual Release tags.
+
+
+Example:
+
+```csharp
+H.Versioning.Version.IgnoreTag(t => t.StartsWith("x")); //Ignore tags that start with "x"
+```
