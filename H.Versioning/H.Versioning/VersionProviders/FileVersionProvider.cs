@@ -2,7 +2,7 @@
 
 namespace H.Versioning.VersionProviders
 {
-    public sealed class FileVersionProvider : IProvideVersion
+    internal sealed class FileVersionProvider : IProvideVersion
     {
         private readonly FileInfo versionFile;
 

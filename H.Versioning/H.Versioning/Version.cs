@@ -67,5 +67,10 @@ namespace H.Versioning
         {
             VersionNumber.Use(parsers.Select(p => new DelegateVersionParser(p)).ToArray());
         }
+
+        public static void IgnoreTag(params Predicate<string>[] predicate)
+        {
+            GitVersionProvider.Ignore(predicate);
+        }
     }
 }

@@ -1,13 +1,15 @@
 ﻿using LibGit2Sharp;
 using System;
+using System.Collections.Concurrent;
 using System.IO;
 using System.Linq;
 
 namespace H.Versioning.VersionProviders
 {
-    public sealed class GitVersionProvider : IProvideVersion
+    internal sealed class GitVersionProvider : IProvideVersion
     {
         private readonly string gitRepositoryPath;
+        private static readonly ConcurrentStack<Predicate<string>> tagsToIgnore = new ConcurrentStack<Predicate<string>>();
 
         public GitVersionProvider(string pathToGitRepo)
         {
@@ -93,6 +95,7 @@ namespace H.Versioning.VersionProviders
         {
             return repo.Tags
                 .Where(t => t.IsAnnotated)
+                .Where(t => !ShouldIgnoreTag(t.Annotation.Name))
                 .OrderByDescending(t => t.Annotation.Tagger.When)
                 .FirstOrDefault(t => TagCommit(repo, t).Committer.When <= timestamp);
         }
@@ -100,6 +103,16 @@ namespace H.Versioning.VersionProviders
         private static Commit TagCommit(Repository repo, Tag tag)
         {
             return repo.Commits.Single(c => c.Id == tag.Target.Id);
+        }
+
+        private static bool ShouldIgnoreTag(string tag)
+        {
+            return tagsToIgnore.Any(ignore => ignore(tag));
+        }
+
+        public static void Ignore(params Predicate<string>[] predicate)
+        {
+            tagsToIgnore.PushRange(predicate);
         }
     }
 }

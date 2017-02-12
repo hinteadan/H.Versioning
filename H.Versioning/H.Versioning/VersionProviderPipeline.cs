@@ -2,7 +2,7 @@
 
 namespace H.Versioning
 {
-    public abstract class VersionProviderPipeline : IProvideVersion
+    internal abstract class VersionProviderPipeline : IProvideVersion
     {
         private readonly Tuple<Func<bool>, IProvideVersion>[] providers;
 
@@ -28,6 +28,10 @@ namespace H.Versioning
                         continue;
                     }
                     return v;
+                }
+                catch (AggregateException)
+                {
+                    throw;
                 }
                 catch (Exception)
                 {

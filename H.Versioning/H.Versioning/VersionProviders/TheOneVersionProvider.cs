@@ -3,7 +3,7 @@ using System.IO;
 
 namespace H.Versioning.VersionProviders
 {
-    public sealed class TheOneVersionProvider : VersionProviderPipeline
+    internal sealed class TheOneVersionProvider : VersionProviderPipeline
     {
         public TheOneVersionProvider()
             : base(
