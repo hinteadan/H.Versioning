@@ -8,7 +8,7 @@ One very easy solution for tracking the version of your application. **Zero huma
 
 
 ## How?
-Install the NuGet:  ```Install-Package H.Versioning```. _(NuGet URL: https://www.nuget.org/packages/H.Versioning)_
+Install the NuGet:  ```Install-Package H.Versioning```. _(NuGet URL: [https://www.nuget.org/packages/H.Versioning](https://www.nuget.org/packages/H.Versioning))_
 
 In your code, wherever you need the current running version, get it via:
 ```csharp
