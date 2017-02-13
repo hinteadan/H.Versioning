@@ -64,7 +64,7 @@ To use this feature do one of the following:
 
 1. Approach **A**:
 
-   1. Specifiy a parsing function, easiest way via a lambda: 
+   a. Specifiy a parsing function, easiest way via a lambda: 
    
    ```csharp
    Version.UseParser(v => new VersionNumber(int.Parse(v.Substring(0, 1)), int.Parse(v.Substring(1))));
@@ -72,13 +72,13 @@ To use this feature do one of the following:
    
 2. Approach **B**:
 
-   1. Write your own custom class that implements the interface: 
+   a. Write your own custom class that implements the interface: 
    
    ```csharp
    H.Versioning.VersionNumberParsers.ICanParseVersionNumber
    ```
 
-   2. Tell H.Versioning to use it: 
+   b. Tell H.Versioning to use it: 
    
    ```csharp
    Version.UseParser(MyCustomVersionNumberParser);
