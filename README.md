@@ -81,3 +81,5 @@ Example:
 ```csharp
 H.Versioning.Version.IgnoreTag(t => t.StartsWith("x")); //Ignore tags that start with "x"
 ```
+
+[![Analytics](https://ga-beacon.appspot.com/UA-91841249-2/home)](https://github.com/igrigorik/ga-beacon)
