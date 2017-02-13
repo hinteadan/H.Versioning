@@ -11,18 +11,27 @@ One very easy solution for tracking the version of your application. **Zero huma
 Install the NuGet:  ```Install-Package H.Versioning```. _(NuGet URL: [https://www.nuget.org/packages/H.Versioning](https://www.nuget.org/packages/H.Versioning))_
 
 In your code, wherever you need the current running version, get it via:
+
 ```csharp
 var version = H.Versioning.Version.Self.GetCurrent();
 ```
 
 The library will calculate the current version by analyzing the GIT repository of the running app.
 
-If you have a ```version.txt``` file in the app's root folder, containing the result of ```H.Versioning.Version.Self.GetCurrent().ToString()```, the library will parse the version from there.
+If you have a ```version.txt``` file in the app's root folder, containing the result of:
+
+```csharp
+H.Versioning.Version.Self.GetCurrent().ToString()
+```
+
+then the library will parse the version from there.
+
 
 This is usefull when you deploy the app and therefore don't have access to the GIT repo.
 
 You can easily generate this file upon deployment by running the following Windows Batch command:
-```
+
+```powershell
 .\H.Versioning.Cli.exe >> version.txt
 ```
 
@@ -55,13 +64,25 @@ To use this feature do one of the following:
 
 1. Approach **A**:
 
-   1. Specifiy a parsing function, easiest way via a lambda: ```Version.UseParser(v => new VersionNumber(int.Parse(v.Substring(0, 1)), int.Parse(v.Substring(1))));```.
+   1. Specifiy a parsing function, easiest way via a lambda: 
+   
+   ```csharp
+   Version.UseParser(v => new VersionNumber(int.Parse(v.Substring(0, 1)), int.Parse(v.Substring(1))));
+   ```
    
 2. Approach **B**:
 
-   1. Write your own custom class that implements the ```H.Versioning.VersionNumberParsers.ICanParseVersionNumber``` interface.
+   1. Write your own custom class that implements the interface: 
+   
+   ```csharp
+   H.Versioning.VersionNumberParsers.ICanParseVersionNumber
+   ```
 
-   2. Tell H.Versioning to use it via: ```Version.UseParser(MyCustomVersionNumberParser);```
+   2. Tell H.Versioning to use it: 
+   
+   ```csharp
+   Version.UseParser(MyCustomVersionNumberParser);
+   ```
 
 
 The parsers are internally stored in a stack, therefore their priority is **Last In, First Out**.
