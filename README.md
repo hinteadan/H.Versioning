@@ -26,6 +26,8 @@ H.Versioning.Version.Self.GetCurrent().ToString()
 
 then the library will parse the version from there.
 
+Alternatively, you can specify the full path of the file in a config entry with the key ```H.Versioning.VersionFile```.
+
 
 This is usefull when you deploy the app and therefore don't have access to the GIT repo.
 
