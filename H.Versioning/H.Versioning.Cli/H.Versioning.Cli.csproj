@@ -59,6 +59,10 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="CleanReferenceCopyLocalPaths" AfterTargets="AfterBuild">
+	  <Delete Files="$(OutDir)\LibGit2Sharp.dll.config" />
+	  <RemoveDir Directories="$(OutDir)\NativeBinaries" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
