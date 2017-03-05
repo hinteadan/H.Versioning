@@ -4,7 +4,7 @@
     <id>H.Versioning</id>
     <version>1.0.1</version>
     <title>H's Easy Application Versioning Library</title>
-    <projectUrl>https://github.com/hinteadan/H.Versioning</projectUrl>
+    <projectUrl>https://hinteadan.github.io/H.Versioning</projectUrl>
     <authors>Hintea Dan Alexandru</authors>
     <owners>Hintea Dan Alexandru,Hintee</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -12,10 +12,7 @@
     <description>One very easy solution for tracking the version of your application. Zero input from developer; the library processes the current version by analyzing the app's GIT repo.</description>
     <summary>One very easy solution for tracking the version of your application.</summary>
     <releaseNotes>First release of the library</releaseNotes>
-    <copyright>Copyright 2016. Hintea Dan Alexandru.</copyright>
+    <copyright>Copyright 2017. Hintea Dan Alexandru.</copyright>
     <tags>version git versioning tracking track deploy automation hintea dan alexandru hintee tee</tags>
-    <dependencies>
-      <dependency id="LibGit2Sharp" version="0.22.0" />
-    </dependencies>
   </metadata>
 </package>
