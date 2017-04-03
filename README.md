@@ -1,7 +1,7 @@
-# H's Versioning Library
+# H's Versioning Library for .NET apps
 
 ## Why?
-Because I'm sick of version conflicts and hard-to-maintain versioning mechanisms that depend on external systems like build servers or CI systems. We already have one source of truth regarding the code base, which is the GIT repository, so let's use it.
+Because I'm tired of version conflicts and hard-to-maintain versioning mechanisms that depend on external systems like build servers or CI systems. We already have one source of truth regarding the code base, which is the GIT repository, so let's use it.
 
 ## What?
 One very easy solution for tracking the version of your application. **Zero human input** as the library processes the current version by analyzing the app's GIT repository.
