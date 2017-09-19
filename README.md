@@ -29,7 +29,7 @@ then the library will parse the version from there.
 Alternatively, you can specify the path of the ```version file``` in a config entry with the key ```H.Versioning.VersionFile``` or in code via ```FileVersionProviderSettings.Default.VersionFilePath```. Examples below:
 
 
-1. Application configuration file (_web.config_ or _app.config_):
+- Application configuration file (_web.config_ or _app.config_):
 
 ```xml
 <appSettings>
@@ -37,7 +37,7 @@ Alternatively, you can specify the path of the ```version file``` in a config en
 </appSettings>
 ```
 
-2. Programmatically:
+- Programmatically:
 
 ```csharp
 FileVersionProviderSettings.Default.VersionFilePath = Server.MapPath("~/version.txt");
