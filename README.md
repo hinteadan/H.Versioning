@@ -26,7 +26,20 @@ H.Versioning.Version.Self.GetCurrent().ToString()
 
 then the library will parse the version from there.
 
-Alternatively, you can specify the full path of the file in a config entry with the key ```H.Versioning.VersionFile```.
+Alternatively, you can specify the path of the ```version file``` in a config entry with the key ```H.Versioning.VersionFile``` or in code via ```FileVersionProviderSettings.Default.VersionFilePath```. Examples below:
+
+
+1. Application configuration file (_web.config_ or _app.config_):
+```xml
+<appSettings>
+   <add key="H.Versioning.VersionFile" value="C:\Path\to\version.txt" />
+</appSettings>
+```
+
+2. Programmatically:
+```csharp
+FileVersionProviderSettings.Default.VersionFilePath = Server.MapPath("~/version.txt");
+```
 
 
 This is usefull when you deploy the app and therefore don't have access to the GIT repo.
