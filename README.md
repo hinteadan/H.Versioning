@@ -30,6 +30,7 @@ Alternatively, you can specify the path of the ```version file``` in a config en
 
 
 1. Application configuration file (_web.config_ or _app.config_):
+
 ```xml
 <appSettings>
    <add key="H.Versioning.VersionFile" value="C:\Path\to\version.txt" />
@@ -37,6 +38,7 @@ Alternatively, you can specify the path of the ```version file``` in a config en
 ```
 
 2. Programmatically:
+
 ```csharp
 FileVersionProviderSettings.Default.VersionFilePath = Server.MapPath("~/version.txt");
 ```
