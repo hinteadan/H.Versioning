@@ -4,21 +4,23 @@ namespace H.Versioning.VersionProviders
 {
     internal sealed class FileVersionProvider : IProvideVersion
     {
-        private readonly FileInfo versionFile;
+        private readonly FileVersionProviderSettings settings = new FileVersionProviderSettings();
+
+        public FileVersionProviderSettings Settings => settings;
 
         public FileVersionProvider(string versionFilePath)
         {
-            this.versionFile = new FileInfo(versionFilePath);
+            settings.VersionFilePath = versionFilePath;
         }
 
         public Version GetCurrent()
         {
-            if (!this.versionFile.Exists)
+            if (!settings.VersionFile.Exists)
             {
                 return Version.Unknown;
             }
 
-            return Version.Parse(File.ReadAllText(versionFile.FullName));
+            return Version.Parse(File.ReadAllText(settings.VersionFilePath));
         }
     }
 }

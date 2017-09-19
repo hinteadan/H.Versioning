@@ -56,6 +56,7 @@
     <Compile Include="VersionNumberParsers\SemanticVersionParser.cs" />
     <Compile Include="VersionProviderPipeline.cs" />
     <Compile Include="VersionProviders\FileVersionProvider.cs" />
+    <Compile Include="VersionProviders\FileVersionProviderSettings.cs" />
     <Compile Include="VersionProviders\GitVersionProvider.cs" />
     <Compile Include="VersionProviders\TheOneVersionProvider.cs" />
   </ItemGroup>
