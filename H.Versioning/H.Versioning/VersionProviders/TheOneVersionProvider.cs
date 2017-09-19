@@ -6,7 +6,7 @@ namespace H.Versioning.VersionProviders
 {
     internal sealed class TheOneVersionProvider : VersionProviderPipeline
     {
-        private static readonly string versionFile = ConfigurationManager.AppSettings["H.Versioning.VersionFile"] ?? Version.DefaultVersionFileSettings.VersionFilePath ?? "version.txt";
+        private static readonly string versionFile = ConfigurationManager.AppSettings["H.Versioning.VersionFile"] ?? FileVersionProviderSettings.Default.VersionFilePath ?? "version.txt";
 
         public TheOneVersionProvider()
             : base(

@@ -4,6 +4,8 @@ namespace H.Versioning.VersionProviders
 {
     public sealed class FileVersionProviderSettings
     {
+        public static readonly FileVersionProviderSettings Default = new FileVersionProviderSettings();
+
         private string versionFilePath;
         private FileInfo versionFile;
 
