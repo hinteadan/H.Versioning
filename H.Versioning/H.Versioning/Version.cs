@@ -12,6 +12,8 @@ namespace H.Versioning
 
         public static readonly Version Unknown = new Version(VersionNumber.Unknown, DateTime.MinValue, "N/A", "N/A");
 
+        public static readonly FileVersionProviderSettings DefaultVersionFileSettings = new FileVersionProviderSettings();
+
         private static readonly string[] possibleVersionPartsSeparators = new string[] { "\r", "\n", "\t", "; ", ", ", "| " };
 
         public readonly VersionNumber Number;
