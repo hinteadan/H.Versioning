@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>H.Versioning.Cli</id>
+    <id>H.Versioning</id>
     <version>2.0.0</version>
-    <title>H's Versioning Library for .NET Command Line Interface</title>
+    <title>H's Versioning Library for .NET</title>
     <projectUrl>https://hinteadan.github.io/H.Versioning/</projectUrl>
     <repository type="git" url="https://github.com/hinteadan/H.Versioning.git" branch="master" />
     <authors>Hintea Dan Alexandru</authors>
@@ -17,8 +17,7 @@
     <copyright>Copyright © 2021. Hintea Dan Alexandru. All Rights Reserved.</copyright>
     <tags>hintea dan alexandru .net essentials utils extensions core utilities data version versioning git</tags>
 	<dependencies>
-    	<dependency id="H.Versioning" version="2.0.0" />
-		<dependency id="H.Necessaire.Runtime.CLI" version="2.2.0" />
+		<dependency id="LibGit2Sharp" version="0.26.2" />
 	</dependencies>
   </metadata>
   <files>

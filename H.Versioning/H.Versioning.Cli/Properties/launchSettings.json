@@ -1,0 +1,21 @@
+{
+  "profiles": {
+    "WSL": {
+      "commandName": "WSL2",
+      "environmentVariables": {},
+      "distributionName": ""
+    },
+    "H.Versioning.Cli - ping": {
+      "commandName": "Project",
+      "commandLineArgs": "testicles"
+    },
+    "H.Versioning.Cli - debug": {
+      "commandName": "Project",
+      "commandLineArgs": "debug"
+    },
+    "H.Versioning.Cli - version": {
+      "commandName": "Project",
+      "commandLineArgs": "version"
+    }
+  }
+}
