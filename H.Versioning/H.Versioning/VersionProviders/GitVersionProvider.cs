@@ -42,7 +42,7 @@ namespace H.Versioning.VersionProviders
             {
                 Branch branch = repo.Branches.Single(b => b.IsCurrentRepositoryHead);
 
-                return new Version(FetchVersionNumber(repo), branch.Tip.Committer.When.DateTime, branch.FriendlyName, branch.Tip.Sha);
+                return new Version(FetchVersionNumber(repo), branch.Tip.Committer.When.UtcDateTime, branch.FriendlyName, branch.Tip.Sha);
             }
         }
 

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>H.Versioning</id>
-    <version>2.0.4</version>
+    <version>2.0.5</version>
     <title>H's Versioning Library for .NET</title>
     <projectUrl>https://hinteadan.github.io/H.Versioning/</projectUrl>
     <repository type="git" url="https://github.com/hinteadan/H.Versioning.git" branch="master" />
