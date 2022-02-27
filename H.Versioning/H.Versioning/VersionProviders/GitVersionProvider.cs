@@ -40,7 +40,7 @@ namespace H.Versioning.VersionProviders
         {
             using (var repo = new Repository(gitRepositoryPath))
             {
-                var branch = repo.Branches.Single(b => b.IsCurrentRepositoryHead);
+                Branch branch = repo.Branches.Single(b => b.IsCurrentRepositoryHead);
 
                 return new Version(FetchVersionNumber(repo), branch.Tip.Committer.When.DateTime, branch.FriendlyName, branch.Tip.Sha);
             }

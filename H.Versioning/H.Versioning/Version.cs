@@ -22,7 +22,7 @@ namespace H.Versioning
         public Version(VersionNumber number, DateTime timestamp, string branch, string commit)
         {
             this.Number = number;
-            this.Timestamp = timestamp;
+            this.Timestamp = EnsureUtc(timestamp);
             this.Branch = branch;
             this.Commit = commit;
         }
@@ -71,6 +71,17 @@ namespace H.Versioning
         public static void IgnoreTag(params Predicate<string>[] predicate)
         {
             GitVersionProvider.Ignore(predicate);
+        }
+
+        private static DateTime EnsureUtc(DateTime dateTime)
+        {
+            if (dateTime.Kind == DateTimeKind.Utc)
+                return dateTime;
+
+            if (dateTime.Kind == DateTimeKind.Unspecified)
+                return DateTime.SpecifyKind(dateTime, DateTimeKind.Utc);
+
+            return dateTime.ToUniversalTime();
         }
     }
 }

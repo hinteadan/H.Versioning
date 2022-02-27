@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="H.Necessaire.Runtime.CLI" Version="2.2.0" />
+    <PackageReference Include="H.Necessaire.Runtime.CLI" Version="2.4.28" />
   </ItemGroup>
 
   <ItemGroup>
