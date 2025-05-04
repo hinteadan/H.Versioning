@@ -3,5 +3,5 @@
 await
     new CliWireup()
     .WithEverything()
-    .Run(askForCommandIfEmpty: true)
+    .Run()
     ;

@@ -1,5 +1,5 @@
 ﻿using H.Necessaire;
-using H.Necessaire.Runtime.CLI.Commands;
+using H.Necessaire.CLI.Commands;
 
 namespace H.Versioning.Cli.Commands
 {

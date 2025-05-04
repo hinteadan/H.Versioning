@@ -22,9 +22,7 @@ namespace H.Versioning.VersionProviders
 
         private static string GetBaseFolderPath()
         {
-            string codeBase = Assembly.GetExecutingAssembly()?.Location ?? string.Empty;
-            UriBuilder uri = new UriBuilder(codeBase);
-            string dllPath = Uri.UnescapeDataString(uri.Path);
+            string dllPath = Assembly.GetExecutingAssembly()?.Location ?? string.Empty;
             string dllFolderPath = Path.GetDirectoryName(dllPath) ?? string.Empty;
             return dllFolderPath;
         }
