@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="H.Versioning.Cli/H.Versioning.Cli.csproj" />
+  <Project Path="H.Versioning/H.Versioning.csproj" />
+</Solution>
