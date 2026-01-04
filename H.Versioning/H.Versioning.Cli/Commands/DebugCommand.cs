@@ -1,5 +1,6 @@
 ﻿using H.Necessaire;
 using H.Necessaire.CLI.Commands;
+using System.Reflection;
 
 namespace H.Versioning.Cli.Commands
 {
@@ -7,7 +8,9 @@ namespace H.Versioning.Cli.Commands
     {
         public override Task<OperationResult> Run()
         {
-            Version? version = Version.Self.GetCurrent();
+            //Version? version = Version.Self.GetCurrent();
+
+            var releases = ReleaseVersion.ProviderForGit.GetAllReleasesFor(Assembly.GetEntryAssembly()?.Location).ToArray();
 
             return OperationResult.Win().AsTask();
         }
