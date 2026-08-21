@@ -17,8 +17,8 @@
     <copyright>Copyright © 2021. Hintea Dan Alexandru. All Rights Reserved.</copyright>
     <tags>hintea dan alexandru .net essentials utils extensions core utilities data version versioning git</tags>
 	<dependencies>
-    	<dependency id="H.Versioning" version="3.1.1" />
-		<dependency id="H.Necessaire.Runtime.CLI" version="3.7.2" />
+    	<dependency id="H.Versioning" version="3.1.2" />
+		<dependency id="H.Necessaire.Runtime.CLI" version="3.7.3" />
 	</dependencies>
   </metadata>
   <files>
