@@ -1,24 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net10.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net11.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="H.Necessaire.Runtime.CLI" Version="3.7.3" />
-  </ItemGroup>
+	<PropertyGroup>
+		<NuspecFile>H.Versioning.Cli.nuspec</NuspecFile>
+		<NuspecBasePath>$(SolutionDir)H.Versioning.Cli</NuspecBasePath>
+		<NuspecProperties>configuration=$(Configuration)</NuspecProperties>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\H.Versioning\H.Versioning.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="H.Necessaire.Runtime.CLI" Version="4.0.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Update="IconLogo.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\H.Versioning\H.Versioning.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="IconLogo.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
 </Project>
